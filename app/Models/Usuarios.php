@@ -13,10 +13,11 @@ class Usuarios extends Model
     protected $table = 'usuarios';
     protected $primarykey = 'id_usuario';
     protected $dates = [
+                        'nascimento',
                         'created_at',
                         'updated_at',
                         'deleted_at'];
-    protected $fillable = ['id_usuario', 'nome','email','nascimento','endereco'];                    
+    protected $fillable = ['nome','email','endereco'];                    
         
     
 }

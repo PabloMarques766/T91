@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,17 +22,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
 
-Route::prefix('usuarios')
+Route::prefix('/')
 ->middleware(['auth'])
-->controller(UsuariosController::class)
+->controller(UserController::class)
 ->group(function () {
-    Route::get('/' , 'index')->name('usuario.index');
-    Route::get('/novo', 'create')->name('usuario.create');
-    Route::get('/editar/{id}', 'edit')->name('usuario.edit');
-    Route::get('/mostrar/{id}', 'show')->name('usuario.show');
-    Route::post('/cadastrar', 'store')->name('usuario.store');
-    Route::post('/atualizar/{id}', 'update')->name('usuario.update');
-    Route::post('/deletar/{id}', 'destroy')->name('usuario.destroy');
+    Route::get('/' , 'index')->name('home.index');
+    Route::get('/novo', 'create')->name('home.create');
+    Route::get('/editar/{id}', 'edit')->name('home.edit');
+    Route::get('/mostrar/{id}', 'show')->name('home.show');
+    Route::post('/cadastrar', 'store')->name('home.store');
+    Route::post('/atualizar/{id}', 'update')->name('home.update');
+    Route::post('/deletar/{id}', 'destroy')->name('home.destroy');
 });
+require __DIR__.'/auth.php';
