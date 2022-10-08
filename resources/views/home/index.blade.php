@@ -3,7 +3,7 @@
 @section('conteudo')
 
     <h1>Cadastrar users - 
-        <a class="btn btn-dark" href="{{ route('user.create',)}}">Novo <i class="bi bi-plus"></i></a>  
+        <a class="btn btn-dark" href="{{ route('home.create')}}">Novo <i class="bi bi-plus"></i></a>  
     </h1>
 
     <table class="table table-striped table-border">
@@ -17,21 +17,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($user->get() as $user) 
+            @foreach ($user as $user) 
             <tr>
                 <td> 
-                    <a class="btn btn-primary" href="{{ route('user.show',['id'=>$user->id]) }}"><i class="bi bi-eye-fill"></i></a>
-                    <a class="btn btn-warning" href="{{ route('user.edit',['id'=>$user->id]) }}">
+                    <a class="btn btn-primary" href="{{ route('home.show',['id'=>$user->id_usuario]) }}"><i class="bi bi-eye-fill"></i></a>
+                    <a class="btn btn-warning" href="{{ route('home.edit',['id'=>$user->id_usuario]) }}">
                         <i class="bi bi-pencil-square"></i> 
                     </a> 
-                    <a class="btn btn-danger" href="{{ route('user.destroy',['id'=>$user->id]) }}">
+                    <a class="btn btn-danger" href="{{ route('home.destroy',['id'=>$user->id_usuario]) }}">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
 
                 </td>
                 <td>{{$user->id}}</td>
                 <td>{{$user->nome}}</td>
-                <td>{{$user->sobrenome}}</td>
                 <td>{{$user->email}}</td>
 
             </tr>

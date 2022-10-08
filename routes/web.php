@@ -33,6 +33,6 @@ Route::prefix('/')
     Route::get('/mostrar/{id}', 'show')->name('home.show');
     Route::post('/cadastrar', 'store')->name('home.store');
     Route::post('/atualizar/{id}', 'update')->name('home.update');
-    Route::post('/deletar/{id}', 'destroy')->name('home.destroy');
+    Route::get('/deletar/{id}', 'destroy')->name('home.destroy');
 });
 require __DIR__.'/auth.php';

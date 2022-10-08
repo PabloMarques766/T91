@@ -14,9 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $User = Usuarios:: OrderBy('name');
+        $user = Usuarios:: all();
         
-        return View('home.index')->with(compact('User'));
+        return View('home.index')->with(compact('user'));
     }
 
     /**
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $User = null;
+        $user = null;
         return view('home.form')->with(compact('user'));
     }
 
@@ -38,11 +38,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $User = new Usuarios();
-        $User->fill($request->all());
-        $User->save();
+        $user = new Usuarios();
+        $user->fill($request->all());
+        $user->save();
 
-        return redirect()->route('home.index')->with('success','user Cadastrada com Sucesso!');
+        return redirect()->route('home.index');
     }
 
     /**
@@ -53,7 +53,7 @@ class UserController extends Controller
      */
     public function show(int $id)
     {
-        $User = Usuarios:: find($id);
+        $user = Usuarios::find($id);
         return view('home.show')->with(compact('user'));
     }
 
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function edit(int $id)
     {
-        $User = Usuarios:: find($id);
+        $user = Usuarios:: find($id);
         // dd($User);
         return view('home.form')->with(compact('user'));
 
@@ -80,9 +80,9 @@ class UserController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $User = Usuarios:: find($id);
-        $User->fill($request->all());
-        $User->save();
+        $user = Usuarios:: find($id);
+        $user->fill($request->all());
+        $user->save();
 
         return redirect()->route('home.index')->with('success','User Atualizada com Sucesso!');
         
@@ -96,8 +96,8 @@ class UserController extends Controller
      */
     public function destroy(int $id)
     {
-        $User = Usuarios:: find($id);
-        $User->delete();
+        $user = Usuarios:: find($id);
+        $user->delete();
 
         return redirect()->route('home.index')->with('danger','User Deletado com Sucesso!');
     }

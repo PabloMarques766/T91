@@ -11,7 +11,7 @@ class Usuarios extends Model
     use HasFactory, SoftDeletes;
     
     protected $table = 'usuarios';
-    protected $primarykey = 'id_usuario';
+    protected $primaryKey = 'id_usuario';
     protected $dates = [
                         'nascimento',
                         'created_at',

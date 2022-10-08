@@ -34,7 +34,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     Lista de Usuarios
-                    - {{ Auth::user()->nome }}
+            
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavFluxo"
                     aria-controls="navbarNavFluxo" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
                            <i class="bi bi-house-door-fill"></i>
                            Home
                         </a>
-                        <a class="nav-link" href="{{ route('usuarios.index') }}">
+                        <a class="nav-link" href="{{ route('home.index') }}">
                             <i class="bi bi-piggy-bank-fill"></i>
                             usuarios
                         </a>                     
@@ -57,20 +57,7 @@
                         </a>
                     </div>
                 </div>
-                <tbody>
-                    @foreach ($usuarios->get() as $usuario)                
-                    <tr>
-                        <td>
-                            <a href="{{ route('usuario.edit', ['id'=>$usuario->id_usuario]) }}" class="btn btn-success">
-                                Editar
-                            </a>
-                        </td>
-                        <td>{{ $usuario->id_usuario }}</td>
-                        <td>{{ $usuario->usuario }}</td>
-                        <td></td>
-                    </tr>
-                    @endforeach
-                </tbody>
+               
             </div>
         </nav>        
         {{-- /MENU --}}
